@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="FAINOR, Faculdade Independente do Nordeste. Vestibular 2027.1: use a sua nota do Enem ou faça o vestibular online e concorra a bolsas de até 100%.">
+<meta property="og:title" content="FAINOR Graduação">
+<meta property="og:description" content="Mais que diploma: habilidade. Vestibular 2027.1.">
+<meta property="og:image" content="capa.jpg">
+<meta name="theme-color" content="#ff3d44">
+<title>FAINOR Graduação</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Bebas+Neue&display=swap">
+<style>
+/* Bio-link da graduação FAINOR. Identidade do site: fundo branco, vermelho FAINOR,
+   pílulas arredondadas e tipografia geométrica. Ordem: campanha no topo, logo,
+   números, abas, conteúdo da aba e botão fixo embaixo. Tudo centralizado. */
+:root {
+  --bg: #ffffff;
+  --surface: #f8f3f4;
+  --fg: #1d1a1b;
+  --muted: #6e6567;
+  --line: #eee4e6;
+  --red: #ff3d44;
+  --red-deep: #e3262e;
+  --red-fg: #ffffff;
+  --yellow: #e4ee2a;
+  --font-display: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-label: "Bebas Neue", "Outfit", system-ui, sans-serif;
+  color-scheme: light;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font-display); }
+* { box-sizing: border-box; }
+img { max-width: 100%; display: block; }
+.page {
+  max-width: 440px; margin: 0 auto;
+  padding-block: 0 140px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.hero, .panel, .alt { text-align: center; }
+.media { position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 0 0 28px 28px; background: var(--red); }
+.media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* Vídeo 16:9 preenchendo o quadrado: altura total e laterais cortadas. */
+.media iframe { position: absolute; top: 50%; left: 50%; height: 100%; width: 177.78%; transform: translate(-50%, -50%); border: 0; pointer-events: none; }
+.sound {
+  position: absolute; right: 12px; bottom: 12px; z-index: 2;
+  background: color-mix(in srgb, #000 55%, transparent); color: #fff; text-decoration: none;
+  font-size: 13px; font-weight: 600; padding: 8px 14px; border-radius: 999px; backdrop-filter: blur(6px);
+}
+.logo { width: 190px; margin: 24px auto 0; }
+.role { font-size: 14px; color: var(--muted); margin: 10px 0 0; }
+.stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  padding-block: 16px; margin-block: 20px 24px;
+}
+.stats b { display: block; font-size: 28px; font-weight: 800; color: var(--red); font-variant-numeric: tabular-nums; }
+.stats span { font-size: 13px; color: var(--muted); line-height: 1.3; display: block; }
+.tabs {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4px;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 999px; padding: 4px; margin-bottom: 28px;
+}
+.tabs button {
+  font: inherit; font-size: 15px; font-weight: 600; color: var(--muted);
+  background: transparent; border: 0; border-radius: 999px; padding: 11px 8px; cursor: pointer;
+}
+.tabs button[aria-selected="true"] { background: var(--red); color: var(--red-fg); }
+.tabs button:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+.kicker { font-family: var(--font-label); font-size: 20px; letter-spacing: 0.08em; color: var(--red); margin: 0 0 6px; }
+h1 { font-size: 34px; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 14px; text-wrap: balance; }
+h1 mark { background: var(--yellow); color: var(--fg); padding: 0 6px; border-radius: 6px; }
+.panel p, .alt p { color: var(--muted); font-size: 16px; line-height: 1.6; margin: 0 auto 12px; max-width: 34ch; }
+h2 { font-size: 20px; font-weight: 700; margin: 28px 0 14px; }
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.tiles a {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  min-height: 112px; min-width: 0; padding: 16px 10px;
+  border: 1px solid var(--line); border-radius: 20px; background: var(--bg);
+  color: var(--fg); text-decoration: none; font-size: 14px; font-weight: 600; text-align: center; line-height: 1.25;
+}
+.tiles small { display: block; font-size: 12px; font-weight: 500; color: var(--muted); margin-top: 2px; }
+.ico {
+  display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px;
+  background: color-mix(in srgb, var(--red) 9%, var(--bg)); color: var(--red);
+}
+.ico svg { width: 22px; height: 22px; }
+.tiles a:focus-visible, .social a:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+@media (hover: hover) { .tiles a:hover { border-color: color-mix(in srgb, var(--red) 40%, var(--bg)); } }
+.social { display: flex; justify-content: center; gap: 12px; margin-top: 24px; }
+.social a {
+  display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--fg);
+}
+.social svg { width: 22px; height: 22px; }
+.btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; min-height: 54px; border-radius: 999px; border: 0; cursor: pointer;
+  background: var(--red); color: var(--red-fg); font: inherit; font-size: 16px; font-weight: 700;
+  text-decoration: none; padding: 14px 20px;
+}
+.btn:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+.btn svg { width: 20px; height: 20px; flex: none; }
+.btn.ghost { background: var(--surface); color: var(--fg); border: 1px solid var(--line); margin-top: 8px; }
+.cta-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 5;
+  padding-block: 12px 16px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--line);
+}
+.cta-bar .btn { max-width: 440px; margin: 0 auto; }
+.phone { font-size: 13px; color: var(--muted); text-align: center; margin: 6px 0 0; user-select: all; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: no-preference) {
+  .tabs button { transition: background 0.2s ease, color 0.2s ease; }
+}
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+<main class="page">
+  <section class="hero" aria-label="Apresentação">
+    <div class="media">
+      <img src="capa.jpg" alt="Vestibular 2027.1 FAINOR. Mais que diploma: habilidade.">
+      <iframe src="https://www.youtube-nocookie.com/embed/j-e8_vRBY6k?autoplay=1&mute=1&loop=1&playlist=j-e8_vRBY6k&controls=0&playsinline=1&rel=0&modestbranding=1" title="Prática que Faz a Diferença na FAINOR!" allow="autoplay; encrypted-media; picture-in-picture" tabindex="-1"></iframe>
+      <a class="sound" href="https://youtu.be/j-e8_vRBY6k" target="_blank" rel="noopener">Assistir com som</a>
+    </div>
+    <img class="logo" src="logo.png" alt="FAINOR, Faculdade Independente do Nordeste">
+    <p class="role">Vitória da Conquista, BA</p>
+    <div class="stats">
+      <div><b>25</b><span>anos de FAINOR</span></div>
+      <div><b>4</b><span>áreas de graduação</span></div>
+      <div><b>100%</b><span>bolsas de até</span></div>
+    </div>
+  </section>
+
+  <div class="tabs" role="tablist" aria-label="Escolha seu perfil">
+    <button role="tab" id="tab-a" aria-selected="true" aria-controls="view-a">Quero estudar</button>
+    <button role="tab" id="tab-b" aria-selected="false" aria-controls="view-b">Já sou aluno</button>
+  </div>
+
+  <section id="view-a" role="tabpanel" aria-labelledby="tab-a" class="panel">
+    <p class="kicker">Vestibular 2027.1</p>
+    <h1>Mais que diploma: <mark>habilidade.</mark></h1>
+    <p>Use a sua nota do Enem ou faça o vestibular online e concorra a bolsas de até 100%.</p>
+
+    <h2>Formas de ingresso</h2>
+    <div class="tiles" id="tiles"></div>
+
+    <div class="social" id="social" aria-label="Redes sociais"></div>
+  </section>
+
+  <section id="view-b" role="tabpanel" aria-labelledby="tab-b" class="alt" hidden>
+    <p class="kicker">Área do aluno</p>
+    <h1>Acesse o Portal do Aluno.</h1>
+    <p>Entre com o seu login pelo botão abaixo.</p>
+    <a class="btn ghost" href="https://www.fainor.com.br/pos" target="_blank" rel="noopener">Conhecer a pós-graduação</a>
+  </section>
+</main>
+
+<div class="cta-bar">
+  <a class="btn" id="cta" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21l1.6-4.6A9 9 0 1 1 8 19.6L3 21z"/></svg>
+    <span id="cta-label"></span>
+  </a>
+  <p class="phone">WhatsApp (77) 3161-1000</p>
+</div>
+
+<script>
+/* Ícones de traço fino, monocromáticos, no estilo dos símbolos do macOS. */
+const ICONS = {
+  doc: '<path d="M14 3.5H7.5A2 2 0 0 0 5.5 5.5v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V8z"/><path d="M14 3.5V8h4.5"/><path d="m9 14 2 2 4-4"/>',
+  check: '<circle cx="12" cy="12" r="8.5"/><path d="m8.3 12.2 2.5 2.5 5-5.2"/>',
+  swap: '<path d="M4.5 9.5A7.5 7.5 0 0 1 18 6.5l1.5 1.5"/><path d="M19.5 4v4h-4"/><path d="M19.5 14.5A7.5 7.5 0 0 1 6 17.5L4.5 16"/><path d="M4.5 20v-4h4"/>',
+  cap: '<path d="M2.5 9.5 12 5l9.5 4.5L12 14z"/><path d="M6.5 11.6V16c0 1.4 2.5 2.8 5.5 2.8s5.5-1.4 5.5-2.8v-4.4"/><path d="M21.5 9.5v5"/>',
+  camera: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="16.9" cy="7.1" r="0.9" fill="currentColor" stroke="none"/>',
+  play: '<rect x="2.5" y="5" width="19" height="14" rx="4.2"/><path d="M10.2 9.4v5.2l4.4-2.6z"/>',
+  note: '<path d="M9.5 17.5V5l9-1.5V16"/><circle cx="7" cy="17.5" r="2.5"/><circle cx="16" cy="16" r="2.5"/>'
+};
+const svg = (k) => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICONS[k] + '</svg>';
+
+/* ==== CONFIGURAÇÃO ====
+   Dados do site fainor.com.br e da campanha Vestibular 2027.1. */
+const CONFIG = {
+  cta: { label: "Falar no WhatsApp", href: "https://wa.me/557731611000" },
+  ctaAluno: { label: "Abrir Portal do Aluno", href: "https://portal.fainor.com.br" },
+  tiles: [
+    { icon: "doc", label: "Vestibular online", note: "Faça de onde estiver", href: "https://www.fainor.com.br" },
+    { icon: "check", label: "Nota do Enem", note: "Até 50% de desconto", href: "https://www.fainor.com.br" },
+    { icon: "swap", label: "Transferência", note: "Venha de outra faculdade", href: "https://www.fainor.com.br" },
+    { icon: "cap", label: "Segunda graduação", note: "Para quem já é formado", href: "https://www.fainor.com.br" }
+  ],
+  social: [
+    { icon: "camera", label: "Instagram", href: "https://www.instagram.com/faculdadefainor" },
+    { icon: "play", label: "YouTube", href: "https://www.youtube.com/@fainoroficial" },
+    { icon: "note", label: "TikTok", href: "https://www.tiktok.com/@faculdadefainor" }
+  ]
+};
+
+const $ = (id) => document.getElementById(id);
+
+CONFIG.tiles.forEach((t) => {
+  const a = document.createElement("a");
+  a.href = t.href; a.target = "_blank"; a.rel = "noopener";
+  const ico = document.createElement("span"); ico.className = "ico"; ico.innerHTML = svg(t.icon);
+  const txt = document.createElement("span"); txt.textContent = t.label;
+  const sm = document.createElement("small"); sm.textContent = t.note; txt.appendChild(sm);
+  a.append(ico, txt);
+  $("tiles").appendChild(a);
+});
+
+CONFIG.social.forEach((s) => {
+  const a = document.createElement("a");
+  a.href = s.href; a.target = "_blank"; a.rel = "noopener"; a.setAttribute("aria-label", s.label);
+  a.innerHTML = svg(s.icon);
+  $("social").appendChild(a);
+});
+
+function showView(name) {
+  const isA = name === "a";
+  $("view-a").hidden = !isA;
+  $("view-b").hidden = isA;
+  $("tab-a").setAttribute("aria-selected", String(isA));
+  $("tab-b").setAttribute("aria-selected", String(!isA));
+  const c = isA ? CONFIG.cta : CONFIG.ctaAluno;
+  $("cta-label").textContent = c.label;
+  $("cta").href = c.href;
+  document.querySelector(".phone").hidden = !isA;
+}
+$("tab-a").addEventListener("click", () => showView("a"));
+$("tab-b").addEventListener("click", () => showView("b"));
+showView("a");
+</script>
+</body>
+</html>
